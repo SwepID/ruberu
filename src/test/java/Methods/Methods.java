@@ -15,6 +15,7 @@ import java.util.List;
 public class Methods
 {
     private ChromeDriver driver;
+    //WebElement element = driver.findElementByClassName("_3ZGcN3lbEg");
     @Test
     public void GoToWebsite(ChromeDriver driver)
     {
@@ -29,7 +30,7 @@ public class Methods
         WebElement login = driver.findElementByXPath("//*[@id=\"passp-field-login\"]");
         login.clear();
         login.sendKeys("testBeru2019");
-        WebElement enter = driver.findElementByXPath("/html/body/div/div/div/div[2]/div/div[2]/div[3]/div[2]/div/div/div[1]/form/div[3]/button[1]");
+        WebElement enter = driver.findElementByXPath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div/div[1]/form/div[3]/button[1]");
         enter.click();
 
         WebDriverWait wait = new WebDriverWait(driver, 1);
@@ -37,7 +38,7 @@ public class Methods
         WebElement password = driver.findElementByXPath("//*[@id=\"passp-field-passwd\"]");
         password.clear();
         password.sendKeys("05281230nm");
-        enter = driver.findElementByXPath("//*[@id=\"root\"]/div/div/div[2]/div/div[2]/div[3]/div[2]/div/div/form/div[2]/button[1]");
+        enter = driver.findElementByXPath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div[1]/form/div[2]/button[1]");
         enter.click();
     }
     public void CheckAuthorization(ChromeDriver driver)
@@ -50,6 +51,17 @@ public class Methods
         {
             driver.quit();
         }
+    }
+    public void CityCheck(ChromeDriver driver)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, 1);
+        wait.until(ExpectedConditions.elementToBeClickable(By.className("_3ZGcN3lbEg")));
+        WebElement element = driver.findElementByClassName("_3ZGcN3lbEg");
+        element.click();
+        WebDriverWait wait2 = new WebDriverWait(driver, 1);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a")));
+        WebElement element2 = driver.findElementByXPath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a");
+        element2.click();
     }
 
 }
