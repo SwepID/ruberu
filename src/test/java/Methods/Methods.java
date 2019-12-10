@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -47,21 +48,38 @@ public class Methods
         WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.elementToBeClickable(By.className("pFhTbV17qj")));
         String text = driver.findElementByClassName("pFhTbV17qj").getText();
-        if (text.equals("Мой профиль"))
-        {
-            driver.quit();
-        }
+        Assert.assertTrue(text.equals("Мой профиль"));
+
     }
     public void CityCheck(ChromeDriver driver)
     {
         WebDriverWait wait = new WebDriverWait(driver, 1);
-        wait.until(ExpectedConditions.elementToBeClickable(By.className("_3ZGcN3lbEg")));
-        WebElement element = driver.findElementByClassName("_3ZGcN3lbEg");
-        element.click();
-        WebDriverWait wait2 = new WebDriverWait(driver, 1);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a")));
-        WebElement element2 = driver.findElementByXPath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a");
-        element2.click();
+        //wait.until(ExpectedConditions.elementToBeClickable(By.className("_3ZGcN3lbEg")));
+        //WebElement element = driver.findElementByClassName("_3ZGcN3lbEg");
+        //element.click();
+        //WebDriverWait wait2 = new WebDriverWait(driver, 1);
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a")));
+        //WebElement element2 = driver.findElementByXPath("/html/body/div[1]/div[2]/div[1]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div[3]/div[1]/div/div/div/div[2]/div/div/ul[2]/ul/li[3]/a");
+        //element2.click();
+
+        List<WebElement> elements = driver.findElements(By.className("_2XJ6yiRp5w"));
+        WebElement city = null;
+        for (WebElement el : elements)
+        {
+            String text = el.getText();
+            if (text.equals("Саратов"))
+            {
+                city = el;
+            }
+        }
+        //driver.quit();
+        city.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#textfield1642621823")));
+        WebElement nameOfCity = driver.findElementByXPath("//input[@id='textfield1642621823']");
+        nameOfCity.clear();
+        driver.quit();
+        //nameOfCity.clear();
+        //nameOfCity.sendKeys("Хвалынск");
     }
 
 }

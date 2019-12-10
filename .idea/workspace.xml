@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47e1369f-3e68-48ad-9966-dd7a75993f4c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/AuthorizationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/ToothBrushPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrush.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Methods/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Methods/Methods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chromedriver.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/Authorization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CityCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CityCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/Methods/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Methods/Methods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Tests/Authorization.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Tests/Authorization.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CityCheck">
+  <component name="RunManager" selected="JUnit.BuyToothBrush">
     <configuration name="Authorization (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
@@ -75,18 +84,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Authorization.GoToWebsite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuyToothBrush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Methods.*" />
+          <option name="PATTERN" value="Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Methods" />
-      <option name="MAIN_CLASS_NAME" value="Methods.Authorization" />
-      <option name="METHOD_NAME" value="GoToWebsite" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.BuyToothBrush" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,29 +114,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityCheck.CityCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Methods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Tests.*" />
+          <option name="PATTERN" value="Methods.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.CityCheck" />
-      <option name="METHOD_NAME" value="CityCheck" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="Methods" />
+      <option name="MAIN_CLASS_NAME" value="Methods.Methods" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CityCheck" />
-        <item itemvalue="JUnit.CityCheck.CityCheck" />
+        <item itemvalue="JUnit.BuyToothBrush" />
         <item itemvalue="JUnit.Authorization (1)" />
+        <item itemvalue="JUnit.CityCheck" />
+        <item itemvalue="JUnit.Methods" />
         <item itemvalue="JUnit.Authorization.Authorization" />
-        <item itemvalue="JUnit.Authorization.GoToWebsite" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572172324342</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added CheckCity">
+      <created>1573621948660</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573621948660</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +246,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First version of my project" />
-    <option name="LAST_COMMIT_MESSAGE" value="First version of my project" />
+    <MESSAGE value="added CheckCity" />
+    <option name="LAST_COMMIT_MESSAGE" value="added CheckCity" />
   </component>
 </project>
