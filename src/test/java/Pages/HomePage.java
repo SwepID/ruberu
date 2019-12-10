@@ -38,16 +38,19 @@ public class HomePage {
         driver.manage().window().fullscreen();
         action = new Actions(driver);
     }
+    @Step (value = "Переходим на сайт")
     public void GoToWebsite()
     {
         driver.get("https://beru.ru/");
     }
+    @Step (value = "Логинимся")
     public void GoToMyProfile() throws InterruptedException
     {
         authorizationPage = new AuthorizationPage(driver, login, password);
         authorizationPage.Authorization();
 
     }
+    @Step (value = "Проверяем авторизацию")
     public void CheckCorrectAuthorization()
     {
         WebDriverWait wait = new WebDriverWait(driver, 1);
@@ -55,12 +58,7 @@ public class HomePage {
         String text = driver.findElementByClassName("pFhTbV17qj").getText();
         Assert.assertTrue(text.equals("Мой профиль"));
     }
-    public void CheckLogin() {
-        WebDriverWait wait = new WebDriverWait(driver, 1);
-        wait.until(ExpectedConditions.elementToBeClickable(By.className("pFhTbV17qj")));
-        element = driver.findElementByClassName("pFhTbV17qj");
-        element.click();
-    }
+    @Step (value = "Меняем город")
     public void ChangeCity(String cityName)
     {
 
@@ -87,6 +85,7 @@ public class HomePage {
         webElement.click();
 
     }
+    @Step (value = "Проверяем смену города")
     public void CheckCity(String cityName)
     {
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -94,6 +93,7 @@ public class HomePage {
         String text = driver.findElement(cityResult).getText();
         Assert.assertTrue(text.equals(cityName));
     }
+    @Step (value = "Переходим в каталог")
     public void  CatalogClick(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(citeCatalog));

@@ -35,6 +35,7 @@ public class CatalogPage {
         driver.manage().window().fullscreen();
         //driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
     }
+    @Step (value = "Выбираем секцию Новый год")
     public void SectionClick() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@class='_22iWsDVCEi']")));
@@ -43,6 +44,7 @@ public class CatalogPage {
         webElement = driver.findElement(section);
         webElement.click();
     }
+    @Step (value = "Выбираем раздел электрических зубных щеток")
     public void ElectricToothbrushesClick() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         //wait.until(ExpectedConditions.elementToBeClickable(electricToothbrushes));
@@ -50,6 +52,7 @@ public class CatalogPage {
         webElement = driver.findElement(electricToothbrushes);
         webElement.click();
     }
+    @Step (value = "Устанавливаем диапазон цен для щеток")
     public void ChoseToothbrushPrice(String lowPrice, String highPrice) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(electricToothbrushesLowPrice));
@@ -63,6 +66,7 @@ public class CatalogPage {
         webElement.click();
         webElement.sendKeys(highPrice);
     }
+    @Step (value = "Выбираем предпоследнюю электрическую зубную щетку")
     public void PutToothBrush()
     {
         WebDriverWait wait = new WebDriverWait(driver, 10);

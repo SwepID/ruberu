@@ -27,12 +27,14 @@ public class CartPage {
     private By delivery = By.cssSelector("div[data-auto = \"total-delivery\"]>span[data-auto = \"value\"]");
     private By discount = By.cssSelector("div[data-auto = \"total-discount\"]>span:last-child");
     private By totalCost = By.cssSelector("div[data-auto = \"total-price\"]>span:last-child");
+
     public CartPage(WebDriver d)
     {
         driver = d;
         driver.manage().window().fullscreen();
         wait = new WebDriverWait(driver, 10);
     }
+    @Step (value = "Проверяем Цену щеток в корзине, учитывая доставку + скидку")
     public void CheckPrice()
     {
         wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));

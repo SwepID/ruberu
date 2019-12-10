@@ -2,7 +2,6 @@ package Tests;
 import Pages.CartPage;
 import Pages.CatalogPage;
 import Pages.HomePage;
-import Pages.ToothBrushPage;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 public class BuyToothBrush {
@@ -12,7 +11,6 @@ public class BuyToothBrush {
         ChromeDriver driver = new ChromeDriver();
         HomePage homePage = new HomePage(driver);
         CatalogPage catalogPage = new CatalogPage(driver);
-        ToothBrushPage toothBrushPage = new ToothBrushPage(driver);
         CartPage cartPage = new CartPage(driver);
         homePage.GoToWebsite();
         homePage.GoToMyProfile();

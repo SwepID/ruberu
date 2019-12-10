@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -25,6 +26,7 @@ public class AuthorizationPage {
         this.login = login;
         this.password = password;
     }
+    @Step(value = "Авторизуемся")
     public void Authorization()
     {
         enterButton = driver.findElementByClassName("_3ZGcN3lbEg"); // иконка входа
