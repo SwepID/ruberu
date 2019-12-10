@@ -1,6 +1,5 @@
 package Tests;
 
-import Methods.Methods;
 import Pages.HomePage;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;

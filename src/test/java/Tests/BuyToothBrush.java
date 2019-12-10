@@ -1,5 +1,5 @@
 package Tests;
-import Methods.Methods;
+import Pages.CartPage;
 import Pages.CatalogPage;
 import Pages.HomePage;
 import Pages.ToothBrushPage;
@@ -13,6 +13,7 @@ public class BuyToothBrush {
         HomePage homePage = new HomePage(driver);
         CatalogPage catalogPage = new CatalogPage(driver);
         ToothBrushPage toothBrushPage = new ToothBrushPage(driver);
+        CartPage cartPage = new CartPage(driver);
         homePage.GoToWebsite();
         homePage.GoToMyProfile();
         homePage.CatalogClick();
@@ -20,6 +21,7 @@ public class BuyToothBrush {
         catalogPage.ElectricToothbrushesClick();
         catalogPage.ChoseToothbrushPrice("999", "1999");
         catalogPage.PutToothBrush();
+        cartPage.CheckPrice();
         //driver.quit();
     }
 }
