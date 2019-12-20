@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47e1369f-3e68-48ad-9966-dd7a75993f4c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Settings/SeleniumListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Settings/WebDriverSettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/CityCheckTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/AuthorizationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/AuthorizationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/AuthorizationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrushTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CityCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Tests/Authorization.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +40,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -43,8 +57,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BuyToothBrush">
-    <configuration name="Authorization (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.BuyToothBrushTest">
+    <configuration name="AuthorizationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
@@ -53,13 +67,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.Authorization" />
+      <option name="MAIN_CLASS_NAME" value="Tests.AuthorizationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Authorization.Authorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuyToothBrushTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
@@ -68,14 +82,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.Authorization" />
-      <option name="METHOD_NAME" value="Authorization" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Tests.BuyToothBrushTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuyToothBrush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthorizationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
@@ -84,13 +97,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.BuyToothBrush" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.AuthorizationTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuyToothBrushTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
@@ -99,34 +114,38 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.CityCheck" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.BuyToothBrushTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Methods" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CityCheckTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ruberu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Methods.*" />
+          <option name="PATTERN" value="Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Methods" />
-      <option name="MAIN_CLASS_NAME" value="Methods.Methods" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.CityCheckTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BuyToothBrush" />
-        <item itemvalue="JUnit.Authorization (1)" />
-        <item itemvalue="JUnit.CityCheck" />
-        <item itemvalue="JUnit.Methods" />
-        <item itemvalue="JUnit.Authorization.Authorization" />
+        <item itemvalue="TestNG.BuyToothBrushTest" />
+        <item itemvalue="TestNG.CityCheckTest" />
+        <item itemvalue="TestNG.AuthorizationTest" />
+        <item itemvalue="JUnit.BuyToothBrushTest" />
+        <item itemvalue="JUnit.AuthorizationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576004904752</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added all steps">
+      <created>1576006053979</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1576006053979</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,6 +287,7 @@
     <MESSAGE value="added CheckCity" />
     <MESSAGE value="Done first and second tests." />
     <MESSAGE value="Done all the tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Done all the tests." />
+    <MESSAGE value="Added all steps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added all steps" />
   </component>
 </project>

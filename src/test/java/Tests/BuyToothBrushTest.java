@@ -1,14 +1,14 @@
 package Tests;
+
 import Pages.CartPage;
 import Pages.CatalogPage;
 import Pages.HomePage;
-import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
-public class BuyToothBrush {
+import Settings.WebDriverSettings;
+import org.testng.annotations.Test;
+
+public class BuyToothBrushTest extends WebDriverSettings {
     @Test
-    public void ToothBrushTest() throws InterruptedException{
-        System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
-        ChromeDriver driver = new ChromeDriver();
+    public void ToothBrushTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         CatalogPage catalogPage = new CatalogPage(driver);
         CartPage cartPage = new CartPage(driver);
@@ -20,6 +20,8 @@ public class BuyToothBrush {
         catalogPage.ChoseToothbrushPrice("999", "1999");
         catalogPage.PutToothBrush();
         cartPage.CheckPrice();
+        cartPage.ChangeOrder();
+        cartPage.IncreasePrice(2999);
         //driver.quit();
     }
 }
