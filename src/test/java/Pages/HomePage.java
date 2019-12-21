@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
@@ -68,20 +69,18 @@ public class HomePage {
         webElement = driver.findElement(cityChange);
         webElement.click();
         webElement.sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
-        for (int i = 0; i < cityName.length(); i++) {
-            webElement.sendKeys(charArray[i] + "");
-            if (driver.findElement(popUpCity).getText().equals(cityName)) {
-                wait.until(ExpectedConditions.elementToBeClickable(popUpCity));
-                webElement = driver.findElement(popUpCity);
-                webElement.click();
-                wait.until(ExpectedConditions.elementToBeClickable(cityConfirmButton));
-                webElement = driver.findElement(cityConfirmButton);
-                webElement.click();
-                break;
-            }
-        }
+        (new WebDriverWait(driver, 10)).until((ExpectedCondition<Boolean>) driver1 -> {
 
-
+            driver1.findElement(cityChange).sendKeys(charArray[i] + "");
+            i++;
+            return driver1.findElement(popUpCity).getText().split("\n")[0].equals(cityName);
+        });
+        wait.until(ExpectedConditions.elementToBeClickable(popUpCity));
+        webElement = driver.findElement(popUpCity);
+        webElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(cityConfirmButton));
+        webElement = driver.findElement(cityConfirmButton);
+        webElement.click();
     }
 
     @Step(value = "Проверяем смену города")
