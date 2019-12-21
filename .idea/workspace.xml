@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="47e1369f-3e68-48ad-9966-dd7a75993f4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/AuthorizationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/AuthorizationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Settings/WebDriverSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Settings/WebDriverSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrushTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrushTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CityCheckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CityCheckTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576871581874</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changed third test">
+      <created>1576943928690</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1576943928690</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +291,7 @@
     <MESSAGE value="Done all the tests." />
     <MESSAGE value="Added all steps" />
     <MESSAGE value="Added Allure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Allure" />
+    <MESSAGE value="Changed third test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed third test" />
   </component>
 </project>

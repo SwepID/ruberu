@@ -108,64 +108,25 @@ public class CartPage {
     }
     @Step(value =  "Повысить общую стоимость корзины")
     public void IncreasePrice(int Price) throws InterruptedException {
-        //wait.until(ExpectedConditions.elementToBeClickable(countOfBrushes));
-        //webElement = driver.findElement(countOfBrushes);
-        //webElement.sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(cartTotalCost));
+        webElement = driver.findElement(cartTotalCost);
+        String totalPrice = webElement.getText();
+        totalPrice = totalPrice.substring(0, totalPrice.length() - 2);
+        totalPrice = totalPrice.replaceAll(" ", "");
+        double cost = Double.parseDouble(totalPrice);
+        int count = (int) Math.ceil(Price/cost);
+        wait.until(ExpectedConditions.elementToBeClickable(countOfBrushes));
+        webElement = driver.findElement(countOfBrushes);
+        webElement.sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+        webElement.sendKeys(Integer.toString(count));
         wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
         webElement = driver.findElement(increaseButton);
-        for (int i=0;i<5;i++){
+        for (int i=0;i<3;i++){
             webElement.click();
         }
         wait.until(ExpectedConditions.presenceOfElementLocated(GoToOffer));
         GoToOffer();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(totalCost));
-//        webElement = driver.findElement(totalCost);
-//
-//        wait.until(ExpectedConditions.elementToBeClickable(courier));
-//        webElement = driver.findElement(courier);
-//        webElement.click();
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(value));
-//        webElement = driver.findElement(value);
-//        int price = 0;
-//        int deliveryPrice = 0;
-//        int discountPrice = 0;
-//        int finallyCost = 0;
-//        String text = webElement.getText();
-//        text = text.substring(0, text.length() - 2);
-//        text = text.replaceAll(" ", "");
-//        price = Integer.parseInt(text);
-//        webElement = driver.findElement(delivery);
-//        String text2 = webElement.getText();
-//        text2 = text2.substring(0, text2.length() - 2);
-//        text2 = text2.replaceAll(" ", "");
-//        try {
-//            deliveryPrice = Integer.parseInt(text2);
-//        } catch (Exception e) {
-//
-//        }
-//        try {
-//            webElement = driver.findElement(discount);
-//            String text3 = webElement.getText();
-//            text3 = text3.substring(0, text3.length() - 2);
-//            text3 = text3.replaceAll(" ", "");
-//            text3 = text3.replaceAll("−", "-");
-//
-//            discountPrice = Integer.parseInt(text3);
-//        } catch (Exception e) {
-//
-//        }
-//        webElement = driver.findElement(totalCost);
-//        String text4 = webElement.getText();
-//        text4 = text4.substring(0, text4.length() - 2);
-//        text4 = text4.replaceAll(" ", "");
-//        finallyCost = Integer.parseInt(text4);
-//        System.out.println(finallyCost);
-//        System.out.println(finallyCost);
-//        System.out.println(finallyCost);
-//        System.out.println(finallyCost);
-//        System.out.println(Price);
-//        Assert.assertTrue(finallyCost == price + discountPrice + deliveryPrice && finallyCost > Price);
-
     }
 
 }
