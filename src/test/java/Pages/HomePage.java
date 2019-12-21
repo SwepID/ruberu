@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class HomePage {
+
     WebDriver driver;
     AuthorizationPage authorizationPage;
     private String login = "testBeru2019";
@@ -21,18 +22,19 @@ public class HomePage {
     WebElement element;
     Actions action;
     private WebElement webElement;
+    private By myProfileButton = By.className("_3ZGcN3lbEg");
     private By cityButton = By.cssSelector("span [data-auto = \"region-form-opener\"]");
     private By cityChange = By.cssSelector("div._1U2ErCeoqP  input[data-tid=\"37e0ab2d\"]");
     private By popUpCity = By.cssSelector("li#react-autowhatever-region--item-0 div._229JDbp_Z8");
     private By cityConfirmButton = By.cssSelector("button[data-tid='71e1c78d']._4qhIn2-ESi.Pjv3h3YbYr.THqSbzx07u");
     private By citeCatalog = By.className("_3RM4_n5whA");
+    private By settingsButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(1) div._2BUQxcqKF7._1brbPchUJq div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2JU13fzXEa div._1SEkJje5GJ:nth-child(3) div._2BUQxcqKF7:nth-child(2) div._2DZ2DFBFda div.Mvy4Zvr556 div._3odNv2Dw2n:nth-child(1) div._2ubPaMe58x._3ZZzYB8tbn.root_arrow_none._1J8-Ybuzc_:nth-child(3) div._3gVpo2i2jf ul.T3jKK6NbAR:nth-child(5) ul:nth-child(1) li:nth-child(3) a._3ioN70chUh._2PstwuMDky._2qK-uj8bL2 div._2kDChpcmLb > div._3BBUsZVSt0._3pvYcLe0Ew");
+    private By cityInSettings = By.cssSelector("span [data-auto = \"region\"]");
     int i = 0;
 
     public HomePage(WebDriver d) {
         PageFactory.initElements(d, this);
         driver = d;
-        //driver.manage().window().fullscreen();
-        //action = new Actions(driver);
     }
 
     @Step(value = "Переходим на сайт")
@@ -52,7 +54,6 @@ public class HomePage {
         WebDriverWait wait = new WebDriverWait(driver, 1);
         wait.until(ExpectedConditions.elementToBeClickable(By.className("pFhTbV17qj")));
         String text = driver.findElement(By.className("pFhTbV17qj")).getText();
-        //String text = _driver.findElementByClassName("pFhTbV17qj").getText();
         Assert.assertEquals(text, "Мой профиль");
     }
 
@@ -90,14 +91,28 @@ public class HomePage {
         String text = driver.findElement(cityResult).getText();
         Assert.assertEquals(text, cityName);
     }
-
+    @Step(value = "Проверяем сменился ли город в настройках")
+    public void CheckCityFromSettings() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(myProfileButton));
+        webElement = driver.findElement(myProfileButton);
+        webElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(settingsButton));
+        webElement = driver.findElement(settingsButton);
+        webElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(cityInSettings));
+        webElement = driver.findElement(cityInSettings);
+        String settingsCity = webElement.getText();
+        wait.until(ExpectedConditions.elementToBeClickable(cityButton));
+        webElement = driver.findElement(cityButton);
+        String city = webElement.getText();
+        Assert.assertEquals(settingsCity, city);
+    }
     @Step(value = "Переходим в каталог")
     public void CatalogClick() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(citeCatalog));
         webElement = driver.findElement(citeCatalog);
-        webElement.click();
-        webElement.click();
         webElement.click();
     }
 

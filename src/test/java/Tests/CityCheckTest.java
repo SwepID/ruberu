@@ -11,9 +11,10 @@ public class CityCheckTest extends WebDriverSettings {
     public void CityCheck(String defaultCityName, String cityName) throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.GoToWebsite();
+        homePage.GoToMyProfile();
         homePage.CheckCity(defaultCityName);
         homePage.ChangeCity(cityName);
-        homePage.CheckCity(cityName);
+        homePage.CheckCityFromSettings();
         driver.quit();
     }
 

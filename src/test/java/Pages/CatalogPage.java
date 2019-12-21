@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import javax.swing.*;
 import java.util.List;
@@ -27,7 +28,8 @@ public class CatalogPage {
     private By showMore = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(5) div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._3GNaczqaFf._1zYszmgEzn div._1_MhGKBSdf.mclNz6d_XS div.KgZT-UYxg1 div._2w4txqzWbX div:nth-child(1) button._4qhIn2-ESi.qAmx3n7Iqk._18c2gUxCdP._39B7yXQbvm > span._2w0qPDYwej");
     private By beforeLastToothBrush = By.cssSelector("div[data-tid = \"596c5524\"] >div:last-child >div >div>div> div:nth-last-child(2)>div>div>div>div>div>div button");
     private By Cart = By.className("_1LEwf9X1Gy");
-
+    private By products = By.cssSelector("div [class = \"_3rWYRsam78\"] [data-tid = \"8c326881\"] [data-auto = \"price\"]");
+    private List<WebElement> instances;
     public CatalogPage(WebDriver d) {
         PageFactory.initElements(d, this);
         driver = d;
@@ -65,6 +67,7 @@ public class CatalogPage {
         webElement = driver.findElement(electricToothbrushesHighPrice);
         webElement.click();
         webElement.sendKeys(highPrice);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(products));
     }
 
     @Step(value = "Выбираем предпоследнюю электрическую зубную щетку")
@@ -82,5 +85,30 @@ public class CatalogPage {
         wait.until(ExpectedConditions.elementToBeClickable(Cart));
         webElement = driver.findElement(Cart);
         webElement.click();
+    }
+    @Step(value = "Перейти в корзину")
+    public void GoToCartPage(){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(Cart));
+        webElement = driver.findElement(Cart);
+        webElement.click();
+    }
+    @Step(value =  "Проверяем корректность диапазона цен")
+    public void CheckCorrectPrice(int minPrice, int maxPrice) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(beforeLastToothBrush));
+        instances = driver.findElements(products);
+        try {
+            for (WebElement elem : instances) {
+                String priceToothBrush = elem.getText();
+                priceToothBrush = priceToothBrush.substring(0, priceToothBrush.length() - 2);
+                priceToothBrush = priceToothBrush.replaceAll(" ", "");
+                int price = Integer.parseInt(priceToothBrush);
+                Assert.assertEquals(price>=minPrice, price<= maxPrice);
+            }
+        }
+        catch (Exception ex) {
+
+        }
     }
 }

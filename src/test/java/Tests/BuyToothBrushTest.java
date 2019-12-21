@@ -13,15 +13,19 @@ public class BuyToothBrushTest extends WebDriverSettings {
         CatalogPage catalogPage = new CatalogPage(driver);
         CartPage cartPage = new CartPage(driver);
         homePage.GoToWebsite();
-        homePage.GoToMyProfile();
+        //homePage.GoToMyProfile();
         homePage.CatalogClick();
         catalogPage.SectionClick();
         catalogPage.ElectricToothbrushesClick();
         catalogPage.ChoseToothbrushPrice("999", "1999");
+        catalogPage.CheckCorrectPrice(999, 1999);
         catalogPage.PutToothBrush();
+        catalogPage.GoToCartPage();
+        cartPage.GoToOffer();
         cartPage.CheckPrice();
         cartPage.ChangeOrder();
         cartPage.IncreasePrice(2999);
+        cartPage.CheckPrice();
         //driver.quit();
     }
 }
