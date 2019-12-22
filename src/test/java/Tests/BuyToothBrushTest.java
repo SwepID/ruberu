@@ -7,6 +7,9 @@ import Settings.WebDriverSettings;
 import org.testng.annotations.Test;
 
 public class BuyToothBrushTest extends WebDriverSettings {
+    int minPrice = 999;
+    int maxPrice = 1999;
+    int increasedPrice = 2999;
     @Test
     public void ToothBrushTest() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
@@ -17,14 +20,14 @@ public class BuyToothBrushTest extends WebDriverSettings {
         homePage.CatalogClick();
         catalogPage.SectionClick();
         catalogPage.ElectricToothbrushesClick();
-        catalogPage.ChoseToothbrushPrice("999", "1999");
-        catalogPage.CheckCorrectPrice(999, 1999);
+        catalogPage.ChoseToothbrushPrice(Integer.toString(minPrice), Integer.toString(maxPrice));
+        catalogPage.CheckCorrectPrice(minPrice, maxPrice);
         catalogPage.PutToothBrush();
         catalogPage.GoToCartPage();
         cartPage.GoToOffer();
         cartPage.CheckPrice();
         cartPage.ChangeOrder();
-        cartPage.IncreasePrice(2999);
+        cartPage.IncreasePrice(increasedPrice);
         cartPage.CheckPrice();
         //driver.quit();
     }

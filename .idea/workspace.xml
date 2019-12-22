@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="47e1369f-3e68-48ad-9966-dd7a75993f4c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/CatalogPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Settings/SeleniumListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Settings/SeleniumListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/AuthorizationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/AuthorizationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrushTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BuyToothBrushTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CityCheckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CityCheckTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576948100978</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Bug Fixes">
+      <created>1576948799631</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576948799631</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,6 +313,7 @@
     <MESSAGE value="Added Allure" />
     <MESSAGE value="Changed third test" />
     <MESSAGE value="Some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some fixes" />
+    <MESSAGE value="Bug Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug Fixes" />
   </component>
 </project>

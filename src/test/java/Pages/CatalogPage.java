@@ -26,9 +26,11 @@ public class CatalogPage {
     private By electricToothbrushesLowPrice = By.cssSelector("div[data-auto = \"filter-range-glprice\"] span[data-auto = \"filter-range-min\"] input");
     private By electricToothbrushesHighPrice = By.cssSelector("div[data-auto = \"filter-range-glprice\"] span[data-auto = \"filter-range-max\"] input");
     private By showMore = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(5) div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._3GNaczqaFf._1zYszmgEzn div._1_MhGKBSdf.mclNz6d_XS div.KgZT-UYxg1 div._2w4txqzWbX div:nth-child(1) button._4qhIn2-ESi.qAmx3n7Iqk._18c2gUxCdP._39B7yXQbvm > span._2w0qPDYwej");
+    private By listToothBrushes = By.cssSelector("div [class = \"_1gDHxFdZ7E\"] button");
     private By beforeLastToothBrush = By.cssSelector("div[data-tid = \"596c5524\"] >div:last-child >div >div>div> div:nth-last-child(2)>div>div>div>div>div>div button");
     private By Cart = By.className("_1LEwf9X1Gy");
     private By products = By.cssSelector("div [class = \"_3rWYRsam78\"] [data-tid = \"8c326881\"] [data-auto = \"price\"]");
+    private By amountProducts = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3rWu3-6RDl.qpgDgmh6Hn._11QbuC0gtX._1zxBwSfbGK._1mXFu6EZpv div.wrItvb7JRv div.NZiH_Kn8Fj span._3l-uEDOaBN.tdrs43E7Xn._3HJsMt3YC_.W-B6JRTjJH > span._3ioN70chUh._3XRVQbB83A");
     private List<WebElement> instances;
     public CatalogPage(WebDriver d) {
         PageFactory.initElements(d, this);
@@ -79,8 +81,10 @@ public class CatalogPage {
         } catch (Exception e) {
 
         }
-        wait.until(ExpectedConditions.elementToBeClickable(beforeLastToothBrush));
-        webElement = driver.findElement(beforeLastToothBrush);
+        wait.until(ExpectedConditions.presenceOfElementLocated(products));
+        wait.until(ExpectedConditions.elementToBeClickable(listToothBrushes));
+        List<WebElement> toothBrushes = driver.findElements(listToothBrushes);
+        webElement = toothBrushes.get(toothBrushes.size() - 2);
         webElement.click();
         wait.until(ExpectedConditions.elementToBeClickable(Cart));
         webElement = driver.findElement(Cart);
@@ -94,9 +98,9 @@ public class CatalogPage {
         webElement.click();
     }
     @Step(value =  "Проверяем корректность диапазона цен")
-    public void CheckCorrectPrice(int minPrice, int maxPrice) {
+    public void CheckCorrectPrice(int minPrice, int maxPrice) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(beforeLastToothBrush));
+        wait.until(ExpectedConditions.elementToBeClickable(amountProducts));
         instances = driver.findElements(products);
         try {
             for (WebElement elem : instances) {

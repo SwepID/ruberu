@@ -31,6 +31,7 @@ public class CartPage {
     private By cartTotalCost = By.cssSelector("div [class = \"_1Q9ASvPbPN _2wL0LFKDDY\"] [class = \"_1oBlNqVHPq\"]");
     private By changeOrder = By.cssSelector("div [class = \"_3l-uEDOaBN tdrs43E7Xn _2PRCigFlCd _1MLtFZArtE\"] [class = \"_3ioN70chUh _3Uc73lzxcf\"]");
     private By countOfBrushes = By.cssSelector("div [class = \"LVfMs-qeRX tOTC_Mrer- _38DKtrKp3V nczD08OBdF _14soKew2iU _1THPOeyTwM _2BlEGjPqbW\"] input");
+    private By decreaseButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(3) div._1Asd4EDRH1 div._2BUQxcqKF7 div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._2bK5pi8G8K._1zYszmgEzn div._1_MhGKBSdf._2TFofSkO9m div.KgZT-UYxg1 div._3zfjK4vBmF div._28YngvLzyh div._1_MhGKBSdf._2er7mzKEW5._1dVZ35q5yJ div.KgZT-UYxg1 div._2AC-xwcK8k div._3iuuBXIa23 div._3iuuBXIa23._1GqGzm7LjG:nth-child(2) div._3iuuBXIa23._1fqzkmCCu3:nth-child(2) div._1DYZjT8fnu div._4QROsPzE8m div.VcZj0jcCdD div:nth-child(1) div:nth-child(1) button._4qhIn2-ESi._2sJs248D-A._18c2gUxCdP._24vNl4GJCb:nth-child(1) span._2w0qPDYwej > span.jE8-ezGMzW");
     private By increaseButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(3) div._1Asd4EDRH1 div._2BUQxcqKF7 div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._2bK5pi8G8K._1zYszmgEzn div._1_MhGKBSdf._2TFofSkO9m div.KgZT-UYxg1 div._3zfjK4vBmF div._28YngvLzyh div._1_MhGKBSdf._2er7mzKEW5._1dVZ35q5yJ div.KgZT-UYxg1 div._2AC-xwcK8k div._3iuuBXIa23 div._3iuuBXIa23._1GqGzm7LjG:nth-child(2) div._3iuuBXIa23._1fqzkmCCu3:nth-child(2) div._1DYZjT8fnu div._4QROsPzE8m div.VcZj0jcCdD div:nth-child(1) div:nth-child(1) > button._4qhIn2-ESi._2sJs248D-A._18c2gUxCdP._3hWhO4rvmA:nth-child(3)");
     public CartPage(WebDriver d) {
         PageFactory.initElements(d, this);
@@ -40,14 +41,6 @@ public class CartPage {
 
     @Step(value = "Проверяем Цену щеток в корзине, учитывая доставку + скидку")
     public void CheckPrice() {
-//        wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
-//        webElement = driver.findElement(GoToOffer);
-//        webElement.click();
-//        try {
-//            ContinueOffer();
-//        } catch (Exception e) {
-//
-//        }
         wait.until(ExpectedConditions.elementToBeClickable(courier));
         webElement = driver.findElement(courier);
         webElement.click();
@@ -122,10 +115,11 @@ public class CartPage {
         webElement.sendKeys(Integer.toString(count));
         wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
         webElement = driver.findElement(increaseButton);
-        for (int i=0;i<3;i++){
-            webElement.click();
-        }
-        wait.until(ExpectedConditions.presenceOfElementLocated(GoToOffer));
+        webElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(decreaseButton));
+        webElement = driver.findElement(decreaseButton);
+        webElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
         GoToOffer();
     }
 

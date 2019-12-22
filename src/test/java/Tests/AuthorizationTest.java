@@ -11,6 +11,5 @@ public class AuthorizationTest extends WebDriverSettings {
         homePage.GoToWebsite();
         homePage.GoToMyProfile();
         homePage.CheckCorrectAuthorization();
-        driver.quit();
     }
 }

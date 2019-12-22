@@ -31,6 +31,7 @@ public class HomePage {
     private By citeCatalog = By.className("_3RM4_n5whA");
     private By settingsButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(1) div._2BUQxcqKF7._1brbPchUJq div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2JU13fzXEa div._1SEkJje5GJ:nth-child(3) div._2BUQxcqKF7:nth-child(2) div._2DZ2DFBFda div.Mvy4Zvr556 div._3odNv2Dw2n:nth-child(1) div._2ubPaMe58x._3ZZzYB8tbn.root_arrow_none._1J8-Ybuzc_:nth-child(3) div._3gVpo2i2jf ul.T3jKK6NbAR:nth-child(5) ul:nth-child(1) li:nth-child(3) a._3ioN70chUh._2PstwuMDky._2qK-uj8bL2 div._2kDChpcmLb > div._3BBUsZVSt0._3pvYcLe0Ew");
     private By cityInSettings = By.cssSelector("span [data-auto = \"region\"]");
+    private By beruButton = By.className("_1G9kMUZOVq");
     int i = 0;
 
     public HomePage(WebDriver d) {
@@ -89,6 +90,7 @@ public class HomePage {
         wait.until(ExpectedConditions.elementToBeClickable(cityResult));
         String text = driver.findElement(cityResult).getText();
         Assert.assertEquals(text, cityName);
+
     }
     @Step(value = "Проверяем сменился ли город в настройках")
     public void CheckCityFromSettings() {
@@ -106,6 +108,9 @@ public class HomePage {
         webElement = driver.findElement(cityButton);
         String city = webElement.getText();
         Assert.assertEquals(settingsCity, city);
+        wait.until(ExpectedConditions.elementToBeClickable(beruButton));
+        webElement = driver.findElement(beruButton);
+        webElement.click();
     }
     @Step(value = "Переходим в каталог")
     public void CatalogClick() {
