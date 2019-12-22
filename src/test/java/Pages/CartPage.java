@@ -114,11 +114,13 @@ public class CartPage {
         webElement.sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
         webElement.sendKeys(Integer.toString(count));
         wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
-        webElement = driver.findElement(increaseButton);
-        webElement.click();
+        WebElement buttonIncrease = driver.findElement(increaseButton);
+        buttonIncrease.click();
         wait.until(ExpectedConditions.elementToBeClickable(decreaseButton));
-        webElement = driver.findElement(decreaseButton);
-        webElement.click();
+        WebElement buttonDecrease = driver.findElement(decreaseButton);
+        buttonDecrease.click();
+        wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
+        buttonIncrease.click();
         wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
         GoToOffer();
     }
