@@ -21,7 +21,10 @@ public class AuthorizationPage {
     WebElement enterButtonFromLoginToPassword;
     WebDriverWait wait;
     WebElement enterButtonForPassword;
-
+    By buttonSubmit = By.cssSelector("div [class = \"passp-button passp-sign-in-button\"] [type = \"submit\"]");
+    By loginXpath = By.xpath("//*[@id=\"passp-field-login\"]");
+    By passwordXpath = By.xpath("//*[@id=\"passp-field-passwd\"]");
+    By enterClass = By.className("_3ZGcN3lbEg");
     public AuthorizationPage(WebDriver d, String login, String password) {
         PageFactory.initElements(d, this);
         driver = d;
@@ -31,23 +34,19 @@ public class AuthorizationPage {
 
     @Step(value = "Авторизуемся")
     public void Authorization() {
-        enterButton = driver.findElement(By.className("_3ZGcN3lbEg"));
-        //enterButton = driver.findElementByClassName("_3ZGcN3lbEg");
+        enterButton = driver.findElement(enterClass);
         enterButton.click();
-        loginField = driver.findElement(By.xpath("//*[@id=\"passp-field-login\"]"));
-        //loginField = driver.findElementByXPath("//*[@id=\"passp-field-login\"]");
+        loginField = driver.findElement(loginXpath);
         loginField.clear();
         loginField.sendKeys(login);
-        enterButtonFromLoginToPassword = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div/div[1]/form/div[3]/button[1]"));
-        //enterButtonFromLoginToPassword = driver.findElementByXPath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div/div[1]/form/div[3]/button[1]");
+        enterButtonFromLoginToPassword = driver.findElement(buttonSubmit);
         enterButtonFromLoginToPassword.click();
         WebDriverWait wait = new WebDriverWait(driver, 1);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"passp-field-passwd\"]")));
-        passwordField = driver.findElement(By.xpath("//*[@id=\"passp-field-passwd\"]"));
+        wait.until(ExpectedConditions.elementToBeClickable(passwordXpath));
+        passwordField = driver.findElement(passwordXpath);
         passwordField.clear();
         passwordField.sendKeys(password);
-        enterButtonForPassword = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div[1]/form/div[2]/button[1]"));
-        //enterButtonForPassword = driver.findElementByXPath("/html/body/div/div/div/div[2]/div/div/div[3]/div[2]/div/div[1]/form/div[2]/button[1]");
+        enterButtonForPassword = driver.findElement(buttonSubmit);
         enterButtonForPassword.click();
     }
 
