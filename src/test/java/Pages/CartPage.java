@@ -133,6 +133,7 @@ public class CartPage {
             wait.until(ExpectedConditions.elementToBeClickable(decreaseButton));
             buttonIncrease.click();
             buttonDecrease.click();
+            wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
         }
         wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
         GoToOffer();
