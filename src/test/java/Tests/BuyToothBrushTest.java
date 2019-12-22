@@ -24,11 +24,11 @@ public class BuyToothBrushTest extends WebDriverSettings {
         catalogPage.CheckCorrectPrice(minPrice, maxPrice);
         catalogPage.PutToothBrush();
         catalogPage.GoToCartPage();
+        cartPage.CheckFreeShipment();
         cartPage.GoToOffer();
         cartPage.CheckPrice();
         cartPage.ChangeOrder();
         cartPage.IncreasePrice(increasedPrice);
         cartPage.CheckPrice();
-        //driver.quit();
     }
 }

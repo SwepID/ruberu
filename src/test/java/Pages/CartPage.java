@@ -1,5 +1,6 @@
 package Pages;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -31,6 +32,7 @@ public class CartPage {
     private By cartTotalCost = By.cssSelector("div [class = \"_1Q9ASvPbPN _2wL0LFKDDY\"] [class = \"_1oBlNqVHPq\"]");
     private By changeOrder = By.cssSelector("div [class = \"_3l-uEDOaBN tdrs43E7Xn _2PRCigFlCd _1MLtFZArtE\"] [class = \"_3ioN70chUh _3Uc73lzxcf\"]");
     private By countOfBrushes = By.cssSelector("div [class = \"LVfMs-qeRX tOTC_Mrer- _38DKtrKp3V nczD08OBdF _14soKew2iU _1THPOeyTwM _2BlEGjPqbW\"] input");
+    private By freeShipment = By.cssSelector("div [class = \"_3yDgi6ylNe\"] [class = \"_3e5zCA3HUO\"]");
     private By decreaseButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(3) div._1Asd4EDRH1 div._2BUQxcqKF7 div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._2bK5pi8G8K._1zYszmgEzn div._1_MhGKBSdf._2TFofSkO9m div.KgZT-UYxg1 div._3zfjK4vBmF div._28YngvLzyh div._1_MhGKBSdf._2er7mzKEW5._1dVZ35q5yJ div.KgZT-UYxg1 div._2AC-xwcK8k div._3iuuBXIa23 div._3iuuBXIa23._1GqGzm7LjG:nth-child(2) div._3iuuBXIa23._1fqzkmCCu3:nth-child(2) div._1DYZjT8fnu div._4QROsPzE8m div.VcZj0jcCdD div:nth-child(1) div:nth-child(1) button._4qhIn2-ESi._2sJs248D-A._18c2gUxCdP._24vNl4GJCb:nth-child(1) span._2w0qPDYwej > span.jE8-ezGMzW");
     private By increaseButton = By.cssSelector("body.i-font_face_ys-text.i-bem.fonts-loaded:nth-child(2) div._3P0bsUXnav:nth-child(3) div._1Asd4EDRH1 div._2BUQxcqKF7 div.TyYugfiSCL._2FbMnl5WYr div._34n95BJuhn div._1RjY7YIluf._1zYszmgEzn div._2BUQxcqKF7 div.TyYugfiSCL._1mn6bk-Kdd div._34n95BJuhn div._2bK5pi8G8K._1zYszmgEzn div._1_MhGKBSdf._2TFofSkO9m div.KgZT-UYxg1 div._3zfjK4vBmF div._28YngvLzyh div._1_MhGKBSdf._2er7mzKEW5._1dVZ35q5yJ div.KgZT-UYxg1 div._2AC-xwcK8k div._3iuuBXIa23 div._3iuuBXIa23._1GqGzm7LjG:nth-child(2) div._3iuuBXIa23._1fqzkmCCu3:nth-child(2) div._1DYZjT8fnu div._4QROsPzE8m div.VcZj0jcCdD div:nth-child(1) div:nth-child(1) > button._4qhIn2-ESi._2sJs248D-A._18c2gUxCdP._3hWhO4rvmA:nth-child(3)");
     public CartPage(WebDriver d) {
@@ -99,6 +101,14 @@ public class CartPage {
         webElement = driver.findElement(GoToOffer);
         webElement.click();
     }
+    @Step(value =  "Проверить значение до бесплатной доставки осталось")
+    public void CheckFreeShipment() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(freeShipment));
+        webElement = driver.findElement(freeShipment);
+        String freeShipmnet = webElement.getText();
+        String str = "Ещё немножко! До бесплатной доставки осталось";
+        Assert.assertTrue(freeShipmnet.contains(str));
+    }
     @Step(value =  "Повысить общую стоимость корзины")
     public void IncreasePrice(int Price) throws InterruptedException {
 
@@ -118,9 +128,12 @@ public class CartPage {
         buttonIncrease.click();
         wait.until(ExpectedConditions.elementToBeClickable(decreaseButton));
         WebElement buttonDecrease = driver.findElement(decreaseButton);
-        buttonDecrease.click();
-        wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
-        buttonIncrease.click();
+        for (int i=0;i<2;i++){
+            wait.until(ExpectedConditions.elementToBeClickable(increaseButton));
+            wait.until(ExpectedConditions.elementToBeClickable(decreaseButton));
+            buttonIncrease.click();
+            buttonDecrease.click();
+        }
         wait.until(ExpectedConditions.elementToBeClickable(GoToOffer));
         GoToOffer();
     }
